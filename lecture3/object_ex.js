@@ -3,7 +3,7 @@
 // console.log(Number.MAX_VALUE);
 
 // 課題1
-let s = "にわにはにわにわとりがいる";
+// let s = "にわにはにわにわとりがいる";
 
 //“と”は先頭から何文字目にあるか?
 // console.log(s.indexOf("と"));
@@ -32,9 +32,23 @@ let s = "にわにはにわにわとりがいる";
 // console.log(s.concat("かもしれない"));
 
 // 7文字目の文字を得よ
-console.log(s.slice(6, 7));
+// console.log(s.slice(6, 7));
 
 // 課題2
+// let n1 = 255;
+// 16進数
+// console.log(n1.toString(16));
+
+// 8進数
+// console.log(n1.toString(8));
+
+let n2 = 123.45678;
+// // 小数点3桁で四捨五入せよ
+// console.log(n2.toFixed(3));
+// // 小数点7桁で四捨五入せよ
+// console.log(n2.toFixed(7));
+// 指数表記
+console.log(n2.toExponential());
 
 // 課題3
 
