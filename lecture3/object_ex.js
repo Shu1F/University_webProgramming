@@ -42,24 +42,157 @@
 // 8進数
 // console.log(n1.toString(8));
 
-let n2 = 123.45678;
+// let n2 = 123.45678;
 // // 小数点3桁で四捨五入せよ
 // console.log(n2.toFixed(3));
 // // 小数点7桁で四捨五入せよ
 // console.log(n2.toFixed(7));
 // 指数表記
-console.log(n2.toExponential());
+// console.log(n2.toExponential());
 
 // 課題3
+// let n4 = -255;
+// let n5 = 123.45678;
+// let n6 = 81;
+
+// n4の絶対値
+// console.log(Math.abs(n4));
+
+// n4, n5, n6の最大値
+// console.log(Math.max(n4, n5, n6));
+
+// n5を四捨五入せよ
+// console.log(Math.round(n5));
+
+// n6の平方根を得よ
+// console.log(Math.sqrt(n6));
+
+// n6の自然対数を得よ
+// console.log(Math.log(n6));
+
+// n4の二乗を得よ
+// console.log(Math.pow(n4, 2));
+
+// n5 - 円周率を求めよ
+// console.log(n5 - Math.PI);
 
 // 課題4
+// let a1 = ["Sato", "Takae", "Osada", "Hio", "Saitoh", "Sato"];
+// let a2 = ["Yabuki", "Aoki", "Moriyama", "Yamada"];
+// a1の長さ
+// console.log(a1.length);
+
+// 文字列に変換
+// console.log(a1.toString());
+
+// a1にa2を連結
+// console.log(a1.concat(a2));
+
+// a1を-で区切って文字列にする
+// console.log(a1.join("-"));
+
+// a1の2要素目から4要素目まで取得する
+// console.log(slice(1, 4));
+
+// a1の末尾にa2の二番目の要素を追加
+// console.log(a1.push(a2[2]));
+
+// 逆順に並び替え
+// console.log(a1.reverse());
 
 // 課題5
+// let m = new Map();
+
+// 右の表のkeyとvalueを連想配列として,変数mに格納せよ
+// m.set("dog", "わんわん");
+// m.set("cat", "にゃー");
+// m.set("mouse", "ちゅー");
+
+// mにduckのkeyが存在するか確認し,存在すれば値を取得せよ,存在しなければ,duckの値として”がーがー”を格納せよ
+// if (m.has("duck")) {
+//   console.log(m.get("dog"));
+// } else {
+//   m.set("duck", "がーがー");
+//   console.log(m.get("duck"));
+// }
+
+// mよりmouseのkeyを削除せよ
+// console.log(m.delete("mouse"));
+
+// mの要素数を得よ
+// console.log(m.size);
+
+// mのすべての値を取得し,結合して1つの文字列にせよ
+// let str = Array.from(m.values()).join("");
+// Array.fromで配列を作成
+// valuesですべてのキーを取得
+// joinで空文字を挿入して文字列を作成
+// console.log(str);
 
 // 課題6
+// let today = new Date("2024/10/08 11:21:33");
+
+// todayのミリ秒を得よ
+// console.log(today.getTime());
+
+// 40日後を設定せよ
+// today.setDate(today.getDate() + 40);
+// console.log(today.toLocaleString());
+
+// todayの秒数 = 3の倍数　たこ焼き　そうでなければ味噌カツ
+// if (today.getSeconds() % 3 === 0) {
+//   console.log("たこ焼き");
+// } else {
+//   console.log("味噌カツ");
+// }
+
+// 1~100000まで加算するのにかかる処理時間
+// 参: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/now
+
+// let processTime;
+// for (let i = 1; i <= 100000; i++) {
+//   if (i === 1) {
+//     processTime = Date.now();
+//   } else if (i === 100000) {
+//     const finish = Date.now() - processTime;
+//     console.log(finish);
+//   }
+// }
 
 // 課題7
 
+// j024402@ns.kogakuin.jp
+// j024402@g.kogakuin.jp
+
+// j124402@ns.kogakuin.jp
+// j124402@g.kogakuin.jp
+
+// j224402@ns.kogakuin.jp
+// j224402@g.kogakuin.jp
+
+// j324402@ns.kogakuin.jp
+// j324402@g.kogakuin.jp
+
+// jX24402@ns.kogakuin.jp
+// jx24402@g.kogakuin.jp
+
+// j[0-3x]\d{5}@(ns.kogakuin.ac.jp|g.kogakuin.jp)
+
+// 参：
+// [1] https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Regular_expressions
+// [2] https://www.tohoho-web.com/js/regexp.htm
+
 // 課題8
+let text =
+  "私のアドレスは j324402@ns.kogakuin.ac.jp と j324402@g.kogakuin.jp です。";
+let reg = new RegExp(
+  "j[0-3x]\\d{5}@(ns\\.kogakuin\\.ac\\.jp|g\\.kogakuin\\.jp)",
+  "gi"
+);
+
+let results = text.match(reg);
+for (let i = 0; i < results.length; i++) {
+  console.log(results[i]);
+}
 
 // 課題9
