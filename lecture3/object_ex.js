@@ -197,14 +197,15 @@
 // 参：https://qiita.com/ue5963/items/bd8e32ac9e6b12aa7fab
 
 // 課題9
-let nine = new Map();
-let era =
-  "令和は2019年5月1日からです。平成は1989年1月8日からです。昭和は1926年12月25日からです。大正は1912年7月30日からです。明治は1968年10月23日からです。";
+// let nine = new Map();
+// let era =
+//   "令和は2019年5月1日からです。平成は1989年1月8日からです。昭和は1926年12月25日からです。大正は1912年7月30日からです。明治は1868年10月23日からです。";
+// // 明治の開始元号が違ったので修正しました
 
-nine.set(era.slice(0, 2), era.slice(3, 12));
-nine.set(era.slice(17, 19), era.slice(20, 29));
-nine.set(era.slice(34, 36), era.slice(37, 48));
-nine.set(era.slice(53, 55), era.slice(56, 66));
-nine.set(era.slice(71, 73), era.slice(74, 85));
+// nine.set(era.slice(0, 2), era.slice(3, 12));
+// nine.set(era.slice(17, 19), era.slice(20, 29));
+// nine.set(era.slice(34, 36), era.slice(37, 48));
+// nine.set(era.slice(53, 55), era.slice(56, 66));
+// nine.set(era.slice(71, 73), era.slice(74, 85));
 
-console.log(nine);
+// console.log(nine);
