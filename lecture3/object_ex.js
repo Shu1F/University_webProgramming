@@ -183,16 +183,26 @@
 // [2] https://www.tohoho-web.com/js/regexp.htm
 
 // 課題8
-let text =
-  "私のアドレスは j324402@ns.kogakuin.ac.jp と j324402@g.kogakuin.jp です。";
-let reg = new RegExp(
-  "j[0-3x]\\d{5}@(ns\\.kogakuin\\.ac\\.jp|g\\.kogakuin\\.jp)",
-  "gi"
-);
+// let text =
+//   "私のアドレスは j324402@ns.kogakuin.ac.jp と j324402@g.kogakuin.jp です。";
+// let reg = new RegExp(
+//   "j[0-3x]\\d{5}@(ns\\.kogakuin\\.ac\\.jp|g\\.kogakuin\\.jp)",
+//   "gi"
+// );
 
-let results = text.match(reg);
-for (let i = 0; i < results.length; i++) {
-  console.log(results[i]);
-}
+// let results = text.match(reg);
+// for (let i = 0; i < results.length; i++) {
+//   console.log(results[i]);
+// }
+// 参：https://qiita.com/ue5963/items/bd8e32ac9e6b12aa7fab
 
 // 課題9
+let nine = new Map();
+let era =
+  "令和は2019年5月1日からです。(17)平成は1989年1月8日からです。(34)昭和は1926年12月25日からです。(53)大正は1912年7月30日からです。(71)明治は1968年10月23日からです。";
+
+m.set(nine.slice(0, 1), nine.slice(3, 12));
+m.set(nine.slice(17, 19), nine.slice(20, 29));
+m.set(nine.slice(34, 36), nine.slice(37, 48));
+m.set(nine.slice(53, 55), nine.slice(56, 66));
+m.set(nine.slice(71, 73), nine.slice(74, 85));
