@@ -199,10 +199,12 @@
 // 課題9
 let nine = new Map();
 let era =
-  "令和は2019年5月1日からです。(17)平成は1989年1月8日からです。(34)昭和は1926年12月25日からです。(53)大正は1912年7月30日からです。(71)明治は1968年10月23日からです。";
+  "令和は2019年5月1日からです。平成は1989年1月8日からです。昭和は1926年12月25日からです。大正は1912年7月30日からです。明治は1968年10月23日からです。";
 
-m.set(nine.slice(0, 1), nine.slice(3, 12));
-m.set(nine.slice(17, 19), nine.slice(20, 29));
-m.set(nine.slice(34, 36), nine.slice(37, 48));
-m.set(nine.slice(53, 55), nine.slice(56, 66));
-m.set(nine.slice(71, 73), nine.slice(74, 85));
+nine.set(era.slice(0, 2), era.slice(3, 12));
+nine.set(era.slice(17, 19), era.slice(20, 29));
+nine.set(era.slice(34, 36), era.slice(37, 48));
+nine.set(era.slice(53, 55), era.slice(56, 66));
+nine.set(era.slice(71, 73), era.slice(74, 85));
+
+console.log(nine);
