@@ -97,13 +97,13 @@
 // 課題３
 
 // 作業A
-let scope = "ぴかちゅう";
-function viewValue() {
-  let scope = "いーぶい";
-  console.log(scope);
-}
-viewValue();
-console.log(scope);
+// let scope = "ぴかちゅう";
+// function viewValue() {
+//   let scope = "いーぶい";
+//   console.log(scope);
+// }
+// viewValue();
+// console.log(scope);
 
 // 作業B
 // let scope = "ぴかちゅう";
@@ -114,5 +114,49 @@ console.log(scope);
 // viewValue();
 // console.log(scope);
 
-[説明];
-// "ぴかちゅう"の文字列が入ってる let scope はグローバルスコープで、viewValue関数の"いーぶい"はローカルスコープである。関数内でのconcole.logはローカルスコープが優先されるのでviewValue関数での出力は"いーぶい"となる。viewValue関数外のconsole.logはローカルスコープの影響を受けないのでグローバルスコープの"ぴかちゅう"が出力される。
+// [説明];
+// "ぴかちゅう"の文字列が入ってる let scope はグローバルスコープで、viewValue関数の"いーぶい"はローカルスコープである。
+// 関数内でのconcole.logはローカルスコープが優先されるのでviewValue関数での出力は"いーぶい"となる。
+// viewValue関数外のconsole.logはローカルスコープの影響を受けないのでグローバルスコープの"ぴかちゅう"が出力される。
+
+// if (true) {
+//   let a = "ぴかちゅう";
+// }
+// console.log(a);
+
+// function showMessage(value) {
+//   console.log(value);
+// }
+// showMessage();
+// showMessage("ぴかちゅう");
+// showMessage("ぴかちゅう", "いーぶい");
+
+// function showMessage(value) {
+//   console.log(arguments[1]);
+//   console.log(arguments.length);
+// }
+// showMessage("ぴかちゅう", "イーブイ");
+
+// 可変長引数 Ver.1
+function max() {
+  let v = Number.MIN_VALUE;
+  for (let a of arguments) {
+    if (v < a) {
+      v = a;
+    }
+  }
+  return v;
+}
+console.log(max(-10, 3, 6, 9));
+
+// 可変長引数 Ver.2
+function max(...values) {
+  let v = Number.MIN_VALUE;
+  for (let a of values) {
+    if (v < a) {
+      v = a;
+    }
+  }
+  return v;
+}
+console.log(max(-10, 3, 6, 9));
