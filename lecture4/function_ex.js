@@ -137,26 +137,51 @@
 // }
 // showMessage("ぴかちゅう", "イーブイ");
 
-// 可変長引数 Ver.1
-function max() {
-  let v = Number.MIN_VALUE;
-  for (let a of arguments) {
-    if (v < a) {
-      v = a;
-    }
-  }
-  return v;
-}
-console.log(max(-10, 3, 6, 9));
+// // 可変長引数 Ver.1
+// function max() {
+//   let v = Number.MIN_VALUE;
+//   for (let a of arguments) {
+//     if (v < a) {
+//       v = a;
+//     }
+//   }
+//   return v;
+// }
+// console.log(max(-10, 3, 6, 9));
 
-// 可変長引数 Ver.2
-function max(...values) {
-  let v = Number.MIN_VALUE;
-  for (let a of values) {
-    if (v < a) {
-      v = a;
-    }
-  }
-  return v;
+// // 可変長引数 Ver.2
+// function max(...values) {
+//   let v = Number.MIN_VALUE;
+//   for (let a of values) {
+//     if (v < a) {
+//       v = a;
+//     }
+//   }
+//   return v;
+// }
+// console.log(max(-10, 3, 6, 9));
+
+// 課題４
+// // [A]
+// function pikapika(...poke) {
+//   let count = poke.length;
+//   // lengthで引数の個数を取得
+//   let symbol = "ー".repeat(count);
+//   // repeat()メソッドでlengthで取得した引数の個数を受け取り、"ー"の個数を保持
+//   let pika = `ぴ${symbol}かちゅう`;
+//   // repeat()で保持した"ー"の個数を、オブジェクトリテラルで代入
+//   console.log(pika);
+// }
+// pikapika(1, 2, 3);
+// pikapika(1, 2, 3, 4, 5, 6, 9);
+
+// [B]＜アロー関数ver.＞
+function manyNumbers(...num) {
+  let sum = (first, second) => {
+    return first + second;
+  };
+  return num.reduce(sum);
 }
-console.log(max(-10, 3, 6, 9));
+
+const result = manyNumbers(1, 2, 3, 4);
+console.log(result);
