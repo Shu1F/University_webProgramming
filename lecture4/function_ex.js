@@ -169,19 +169,66 @@
 //   let symbol = "ー".repeat(count);
 //   // repeat()メソッドでlengthで取得した引数の個数を受け取り、"ー"の個数を保持
 //   let pika = `ぴ${symbol}かちゅう`;
-//   // repeat()で保持した"ー"の個数を、オブジェクトリテラルで代入
+//   // repeat()で保持した"ー"の個数を、テンプレートリテラルで代入
 //   console.log(pika);
 // }
 // pikapika(1, 2, 3);
 // pikapika(1, 2, 3, 4, 5, 6, 9);
 
-// [B]＜アロー関数ver.＞
-function manyNumbers(...num) {
-  let sum = (first, second) => {
-    return first + second;
-  };
-  return num.reduce(sum);
+// [B]
+// function manyNumbers(...num) {
+//   let sum = (first, second) => {
+//     return first + second;
+//     加算結果をreduce()メソッドに渡す
+//   };
+//   return num.reduce(sum);
+//   // reduce()で要素を累積的に処理する
+//   // 最後の値を返す
+// }
+
+// const result = manyNumbers(1, 2, 3, 4);
+// console.log(result);
+
+// [課題 5]
+function getOmikujiArray(n) {
+  getOmikuji();
+  return [
+    `大吉 × ${daikichi}`,
+    `吉 × ${kichi}`,
+    `凶 × ${kyou}`,
+    `大凶 × ${daikyou}`,
+  ];
 }
 
-const result = manyNumbers(1, 2, 3, 4);
-console.log(result);
+function getOmikuji() {
+  let daikichi = 0;
+  let kichi = 0;
+  let kyou = 0;
+  let daikyou = 0;
+  let n = 0;
+
+  for (let i = 0; i < 10; i++) {
+    let rndm = Math.random();
+    if (rndm < 0.3) {
+      console.log(`大吉 ${rndm}`);
+      daikichi++;
+      n++;
+    } else if (rndm >= 0.3 && rndm < 0.7) {
+      console.log(`吉 ${rndm}`);
+      kichi++;
+      n++;
+    } else if (rndm >= 0.7 && rndm < 0.95) {
+      console.log(`凶 ${rndm}`);
+      kyou++;
+      n++;
+    } else {
+      console.log(`大凶 ${rndm}`);
+      daikyou++;
+      n++;
+    }
+    return n;
+  }
+}
+
+console.log(n);
+console.log(getOmikujiArray);
