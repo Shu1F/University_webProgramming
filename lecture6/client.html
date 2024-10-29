@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <title>DOM操作で色々遊ぼう</title>
+</head>
+
+<body>
+    <div id="exercise1">
+        <p>====課題1のためのゾーン===</p>
+        <div id="repeat">
+            <p id="1st" class="nigiyaka" name="tanosige">わいわい</p>
+            <p id="2nd" class="nigiyaka" name="normal">がやがや</p>
+            <p id="3rd" class="nigiyaka" name="odoroki">ざわざわ</p>
+            <p id="4th" class="shizuka" name="normal">ひそひそ</p>
+            <p id="5th" class="syokuji" name="normal">もぐもぐ</p>
+        </div>
+        <div id="macron">
+            <p id="7th" class="nigiyaka" name="normal">がーやがーや</p>
+            <p id="9th" class="shizuka" name="normal">ひーそひーそ</p>
+            <p id="6th" class="nigiyaka" name="tanosige">わーいわーい</p>
+            <p id="10th" class="syokuji" name="normal">もーぐもーぐ</p>
+            <p id="8th" class="nigiyaka" name="odoroki">ざーわざーわ</p>
+        </div>
+    </div>
+
+    <div id="exercise23">
+        <p>====課題2と3のためのゾーン===</p>
+        <form action="" method="post">
+            <p>
+                <label for="status">キャラクター名を入力してね：</label>
+                <input id="char_name" type="text" size="30" />
+            </p>
+            <p>
+                種族を選んでね：
+                <input type="radio" name="type" value="human">人間
+                <input type="radio" name="type" value="elf">エルフ
+                <input type="radio" name="type" value="dwarf">ドワーフ
+                <input type="radio" name="type" value="therianthrope">獣人
+            </p>
+            <p>
+                性格を選んでね（ctrlを押しながらで複数選択可）：
+                <select name="personality" multiple>
+                    <option value="ずぶとい">ずぶとい</option>
+                    <option value="ひかえめ">ひかえめ</option>
+                    <option value="おだやか">おだやか</option>
+                    <option value="おくびょう">おくびょう</option>
+                    <option value="さみしがり">さみしがり</option>
+                    <option value="おっとり">おっとり</option>
+                    <option value="おとなしい">おとなしい</option>
+                    <option value="せっかち">せっかち</option>
+                    <option value="いじっぱり">いじっぱり</option>
+                    <option value="わんぱく">わんぱく</option>
+                    <option value="しんちょう">しんちょう</option>
+                    <option value="ようき">ようき</option>
+                    <option value="やんちゃ">やんちゃ</option>
+                    <option value="のうてんき">のうてんき</option>
+                    <option value="うっかりや">うっかりや</option>
+                    <option value="むじゃき">むじゃき</option>
+                    <option value="ゆうかん">ゆうかん</option>
+                    <option value="のんき">のんき</option>
+                    <option value="れいせい">れいせい</option>
+                    <option value="なまいき">なまいき</option>
+                </select>
+            </p>
+            <p>
+                フレーバーテキストを入力してね：<br>
+                <textarea name="flavor" rows="4" cols="40"
+                    placeholder="なんとなく雰囲気を出すための文章です．説明文でもいいしセリフでも良いので，何かしら書いてみるがよい．"></textarea>
+            </p>
+            <input id="submit" type="button" value="決定!" />
+        </form>
+        <div id="status">
+            <p>名前：</p>
+        </div>
+    </div>
+    <script type="text/javascript" src="client_ex.js"></script>
+</body>
+
+</html>
