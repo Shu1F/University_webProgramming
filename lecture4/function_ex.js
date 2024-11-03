@@ -6,7 +6,7 @@
 
 // let res = getTriangle(2, 6);
 // console.log(res);
-function getOmikuji() {
+function getOmikujiDo() {
   let rndm = Math.random();
   return getOmikujiTest(rndm);
 }
@@ -22,4 +22,6 @@ function getOmikujiTest(rndm) {
     return "大凶";
   }
 }
-console.log(getOmikuji());
+console.log(getOmikujiDo());
+
+function getOmikuji() {}
