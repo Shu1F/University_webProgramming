@@ -36,8 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('btn').addEventListener('click', function () {
         // 検索ボタンが押されたときに発火するイベントリスナー
         let target_url = document.getElementById('url').value; //HTML上で入力されたURLを受け取る
-        let url = 'https://b.hatena.ne.jp/entry/jsonlite/?callback=show&url=' + encodeURIComponent(target_url);
-        //callbackパラメータには，結果を処理する関数を指定する（いまは【show】関数）
+        // let url = 'https://b.hatena.ne.jp/entry/jsonlite/?callback=show&url=' + encodeURIComponent(target_url);
+        // let url = 'https://b.hatena.ne.jp/entry/jsonlite/?callback=showTags&url=' + encodeURIComponent(target_url);
+        let url = 'https://b.hatena.ne.jp/entry/jsonlite/?callback=countTags&url=' + encodeURIComponent(target_url);
+        //callbackパラメータには，結果を処理する関数を指定する
         //urlパラメータには，ブックマーク情報を受け取りたいURLを指定する
         //urlはencodeURIComponentを使って，getのパラメータとして適切な文字になるように変換する（変な記号とかを変換）
         let scr = document.createElement('script');
@@ -49,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 //==========課題4のためのコード==========
-// show関数とおなじように他の関数,showTags関数やcountTags関数を作成していく．
 function show(data) {
     if (data === null) {
         result.textContent = 'ブックマークは存在しませんでした';
@@ -65,6 +66,59 @@ function show(data) {
             let text = document.createTextNode(bms[i].user + '：' + bms[i].comment);
             anchor.appendChild(text);
             li.appendChild(anchor);
+            ul.appendChild(li);
+        }
+        result.appendChild(ul);
+        //どんな感じでHTMLにタグを追加しているのか想像しながら読もう
+    }
+}
+function showTags(data) {
+    if (data === null) {
+        result.textContent = 'ブックマークは存在しませんでした';
+    } else {
+        let bms = data.bookmarks;
+        //返ってきたjsonはjavascriptのオブジェクトとして扱える
+        //bookmarksラベルのデータ（配列）にアクセスしていると考えればよい
+        let ul = document.createElement('ul');
+        for (let j = 0, len = bms.length; j < len; j++) {
+            if (bms[j].tags != null) {
+                let li = document.createElement('li');
+                let tag = document.createTextNode(bms[j].tags);
+                li.appendChild(tag);
+                ul.appendChild(li);
+            }
+        }
+        result.appendChild(ul);
+    }
+}
+
+function countTags(data) {
+    if (data === null) {
+        result.textContent = 'ブックマークは存在しませんでした';
+    } else {
+        let bms = data.bookmarks;
+        //返ってきたjsonはjavascriptのオブジェクトとして扱える
+        //bookmarksラベルのデータ（配列）にアクセスしていると考えればよい
+        //配列mを作成して、そこにタグとその出現回数を記録する
+        let m = new Map();
+        for (let i = 0, len = bms.length; i < len; i++) {
+            for (let j = 0, len_i = bms[i].tags.length; j < len_i; j++) {
+                let tag = bms[i].tags[j];
+                if (m.has(tag)) {
+                    m.set(tag, m.get(tag) + 1);
+                } else {
+                    m.set(tag, 1);
+                }
+            }
+        }
+        //mの値でソートする．
+		m = new Map([...m].sort((a, b) => (b[1] - a[1])));
+        //mの中身をforで展開することで一覧を表示する
+        let ul = document.createElement('ul');
+        for (let key of m.keys()) {
+            let li = document.createElement('li');
+            let text = document.createTextNode(key + '：' + m.get(key));
+            li.appendChild(text);
             ul.appendChild(li);
         }
         result.appendChild(ul);
