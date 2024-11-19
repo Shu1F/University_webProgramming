@@ -1,60 +1,177 @@
-//課題1で使う配列
-let testdata = [54, 40, 10, 5, 21, 49, 30, 54, 10, 30, 35, 30, 100, 18, 60, 48, 36, 60, 9, 36, 40, 35, 35, 40, 70, 12, 30, 21, 4, 24, 18, 45, 27, 28, 50, 70, 90, 9, 40, 54, 30, 2, 18, 60, 15, 56, 56, 64, 56, 24, 18, 36, 70, 28, 28, 50, 20, 12, 28, 3, 21, 72, 18, 45, 12, 56, 15, 50, 10, 54, 18, 40, 20, 40, 56, 8, 40, 54, 6, 14, 60, 90, 40, 81, 48, 80, 50, 90, 15, 50, 3, 27, 16, 70, 24, 54, 7, 30, 70, 40];
+// WebAPI_2.js
 
-// ここに課題1の解をじゃんじゃん書いていく．
-// 課題1-1
-const maxNum = (testdata) => {
-  for(i = 0, i < testdata.length, i++) {
-    let max = testdata[0]
-    if (max > testdata[i]) {
-      max = max;
-    } else if {
-      max = testdata[i];
+const maxNum = (arr) => {
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
     }
   }
+  return max;
+};
+
+const minNum = (arr) => {
+  let min = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+  return min;
+};
+
+const medNum = (arr) => {
+  const sortedArray = arr.slice().sort((a, b) => a - b);
+  const length = sortedArray.length;
+  if (length % 2 === 1) {
+    return sortedArray[Math.floor(length / 2)];
+  } else {
+    const mid1 = sortedArray[length / 2 - 1];
+    const mid2 = sortedArray[length / 2];
+    return (mid1 + mid2) / 2;
+  }
+};
+
+function findMode(arr) {
+  const frequency = {};
+  let maxFreq = 0;
+  let modes = [];
+
+  arr.forEach((item) => {
+    frequency[item] = (frequency[item] || 0) + 1;
+    if (frequency[item] > maxFreq) {
+      maxFreq = frequency[item];
+    }
+  });
+
+  for (let key in frequency) {
+    if (frequency[key] === maxFreq) {
+      modes.push(Number(key));
+    }
+  }
+
+  return modes;
 }
-// 課題1-2
 
-// 課題1-3
+function calculateUnbiasedVariance(arr) {
+  const n = arr.length;
+  const mean = arr.reduce((sum, value) => sum + value, 0) / n;
+  const variance =
+    arr.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0) / (n - 1);
+  return variance;
+}
 
-// 課題1-4
+function countOccurrences(arr) {
+  const frequency = {};
 
-// 課題1-5
+  arr.forEach((item) => {
+    frequency[item] = (frequency[item] || 0) + 1;
+  });
 
-// 課題1-6
+  const sortedFrequency = Object.entries(frequency).sort((a, b) => b[1] - a[1]);
 
+  const sortedFrequencyObject = {};
+  sortedFrequency.forEach(([key, value]) => {
+    sortedFrequencyObject[key] = value;
+  });
 
-//課題2,3用イベントリスナー
-document.addEventListener('DOMContentLoaded', function () {
-    // 各所にイベントリスナーを設置する．これは，HTML読み込み完了時に動作する．
+  return sortedFrequencyObject;
+}
 
-    // 課題2-1用(課題3-1でも使える）
-    document.getElementById('kadai2-1').addEventListener('click', function () {
-    	let result = document.getElementById('result2-1');
+function getInputData() {
+  const inputText = document.getElementById("inputData").value;
+  const inputArray = inputText
+    .split(",")
+    .map((item) => Number(item.trim()))
+    .filter((item) => !isNaN(item));
+  return inputArray;
+}
 
-		//以下いろいろ書いていくこと．
-		
-    }, false);
-    
-    
-   // 課題2-2用（課題3-2でも使える）
- 	document.getElementById('kadai2-2').addEventListener('click',function(){
-		let result = document.getElementById('result2-2');
-		let ul = document.createElement('ul');
-		
-		//以下いろいろ書いていくこと．
-		
-    }, false);
-    
- 	// 課題2-3用（課題3-3でも使える）
- 	document.getElementById('kadai2-3').addEventListener('click',function(){
-        let result = document.getElementById('result2-3');
-        let ul = document.createElement('ul');
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    document.getElementById("kadai2-1").addEventListener(
+      "click",
+      function () {
+        let result = document.getElementById("result2-1");
+        const inputData = getInputData();
+        if (inputData.length === 0) {
+          result.textContent = "データを入力してください";
+          return;
+        }
+        const maxValue = maxNum(inputData);
+        result.textContent = `最大値: ${maxValue}`;
+      },
+      false
+    );
 
-		//以下いろいろ書いていくこと．
+    document.getElementById("kadai2-2").addEventListener(
+      "click",
+      function () {
+        let result = document.getElementById("result2-2");
+        result.innerHTML = "";
+        const inputData = getInputData();
+        if (inputData.length === 0) {
+          result.textContent = "データを入力してください";
+          return;
+        }
+        let ul = document.createElement("ul");
+        let maxValue = maxNum(inputData);
+        let minValue = minNum(inputData);
+        let medianValue = medNum(inputData);
+        let modeValue = findMode(inputData);
+        let varianceValue = calculateUnbiasedVariance(inputData).toFixed(2);
+        let liMax = document.createElement("li");
+        liMax.textContent = "最大値: " + maxValue;
+        ul.appendChild(liMax);
+        let liMin = document.createElement("li");
+        liMin.textContent = "最小値: " + minValue;
+        ul.appendChild(liMin);
+        let liMedian = document.createElement("li");
+        liMedian.textContent = "中央値: " + medianValue;
+        ul.appendChild(liMedian);
+        let liMode = document.createElement("li");
+        liMode.textContent = "最頻値: " + modeValue.join(", ");
+        ul.appendChild(liMode);
+        let liVariance = document.createElement("li");
+        liVariance.textContent = "分散: " + varianceValue;
+        ul.appendChild(liVariance);
+        result.appendChild(ul);
+      },
+      false
+    );
 
-    },false);
-}, false);
+    document.getElementById("kadai2-3").addEventListener(
+      "click",
+      function () {
+        let result = document.getElementById("result2-3");
+        result.innerHTML = "";
+        const inputData = getInputData();
+        if (inputData.length === 0) {
+          result.textContent = "データを入力してください";
+          return;
+        }
+        let ul = document.createElement("ul");
 
-//　その他必要な（複数のイベントリスナーで使用する）関数などはこれ以降に書いていく．
-		
+        const counts = {};
+        inputData.forEach((item) => {
+          counts[item] = (counts[item] || 0) + 1;
+        });
+
+        const sortedCounts = Object.entries(counts)
+          .sort((a, b) => b[1] - a[1])
+          .map(([value, count]) => ({ value: Number(value), count }));
+
+        sortedCounts.forEach((item) => {
+          let li = document.createElement("li");
+          li.textContent = `${item.value} が ${item.count} 回出現`;
+          ul.appendChild(li);
+        });
+
+        result.appendChild(ul);
+      },
+      false
+    );
+  },
+  false
+);
