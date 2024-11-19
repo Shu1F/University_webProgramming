@@ -3,7 +3,16 @@ let testdata = [54, 40, 10, 5, 21, 49, 30, 54, 10, 30, 35, 30, 100, 18, 60, 48, 
 
 // ここに課題1の解をじゃんじゃん書いていく．
 // 課題1-1
-
+const maxNum = (testdata) => {
+  for(i = 0, i < testdata.length, i++) {
+    let max = testdata[0]
+    if (max > testdata[i]) {
+      max = max;
+    } else if {
+      max = testdata[i];
+    }
+  }
+}
 // 課題1-2
 
 // 課題1-3
