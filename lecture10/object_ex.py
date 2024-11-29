@@ -93,34 +93,45 @@ a2 = ["Yabuki", "Aoki", "Moriyama", "Yamada"]
 
 # 課題3
 # // 右の表のkeyとvalueを連想配列として，変数songsに格納せよ
+songs = {"dog":"わんわん", "cat":"にゃー", "mouse":"ちゅー"}
 # let m = new Map();
 # m.set('dog', 'わんわん');
 # m.set('cat', 'にゃー');
 # m.set('mouse', 'ちゅー');
+
 # // songsにduckのkeyが存在するか確認し，存在すれば値を取得せよ，存在しなければ，duckの値として”がーがー”を格納せよ．
+# duck in songs
+# print(songs)
+# ないので
+# songs["duck"] = "がーがー"
+# print(songs)
 # if (m.has('duck')) {
 #     console.log(m.get('duck'));
 # }
 # else {
 #     m.set('duck', 'がーがー');
 # }
-
-songs = {"dog":"わんわん", "cat":"にゃー", "mouse":"ちゅー"}
 # print(songs)
 
 # // songsよりmouseのkeyを削除せよ
 # m.delete('mouse');
-del songs.keys()
-print (songs)
+# del songs.keys()
+# print (songs)
 
 # // songsの要素数を得よ
-# console.log(m.size);
+# console.log(m.size);\
+# print(len(songs))
+# 3
+# duckは含めていません
+
 # // songsのすべての値を取得し，結合して１つの文字列にせよ
 # let temp = '';
 # for (let v of m.values()) {
 #     temp += v;
 # }
 # console.log(temp);
+result = ", ".join(songs.values())
+print(result)
 
 # 課題4以降は別ファイル（function_ex.py）へ
 
