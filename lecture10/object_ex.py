@@ -80,15 +80,16 @@ a2 = ["Yabuki", "Aoki", "Moriyama", "Yamada"]
 # // a1の末尾にa2の2番目の要素を追加せよ
 # a1.push(a2[2]);
 # console.log(a1);
-a3 = a2[1]
-a1.extend([a3])
-print(a1)
-["Sato", "Takae", "Osada", "Hio", "Saitoh", "Sato", "Aoki"]
+# a3 = a2[1]
+# a1.extend([a3])
+# print(a1)
+# ["Sato", "Takae", "Osada", "Hio", "Saitoh", "Sato", "Aoki"]
 
 # // a1を降順に並べよ
 # a1.sort().reverse();
 # console.log(a1);
-a1.sort(reverse=True)
+# a1.sort(reverse=True)
+# ['Sato', 'Takae', 'Osada', 'Hio', 'Saitoh', 'Sato', 'Aoki']
 
 # 課題3
 # // 右の表のkeyとvalueを連想配列として，変数songsに格納せよ
@@ -103,8 +104,15 @@ a1.sort(reverse=True)
 # else {
 #     m.set('duck', 'がーがー');
 # }
+
+songs = {"dog":"わんわん", "cat":"にゃー", "mouse":"ちゅー"}
+# print(songs)
+
 # // songsよりmouseのkeyを削除せよ
 # m.delete('mouse');
+del songs.keys()
+print (songs)
+
 # // songsの要素数を得よ
 # console.log(m.size);
 # // songsのすべての値を取得し，結合して１つの文字列にせよ
