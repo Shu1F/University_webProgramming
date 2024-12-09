@@ -1,0 +1,64 @@
+{
+  "folders": [
+	{
+		"name": "University_Lecture_C",
+		"path": "../../University_Lecture_C"
+	},
+	{
+		"name": "websiteLecture",
+		"path": "../../websiteLecture"
+	},
+	{
+		"name": "AtCoder_Practice",
+		"path": "../../AtCoder_Practice"
+	},
+	{
+		"name": "University_Python_Lecture",
+		"path": "../../University_Python_Lecture"
+	},
+	{
+		"path": ".."
+	},
+	{
+		"path": "../../DB_Session"
+	},
+	{
+		"path": "../../first_portfolio_project"
+	},
+	{
+		"path": "../../Notion_Anki_project"
+	},
+	{
+		"path": "../../personal_slide"
+	},
+	{
+		"path": "../../study_StatisticsCertificationGrade2"
+	}
+],
+  "settings": {
+    "files.associations": {
+      "Lecture2.C": "cpp",
+      "Lecture2_task1.C": "cpp",
+      "Lecture2_task2.C": "cpp",
+      "sample.C": "cpp",
+      "lecture3_Pre.C": "cpp",
+      "lecture3_task1.C": "cpp",
+      "lecture3_task2.C": "cpp",
+      "lecture4_task1.C": "cpp",
+      "lecture4_task2.C": "cpp",
+      "lecture4_pre.C": "cpp"
+    },
+    "python.analysis.autoFormatStrings": false,
+    "sqltools.connections": [
+      {
+        "previewLimit": 50,
+        "server": "localhost",
+        "port": 5432,
+        "driver": "PostgreSQL",
+        "name": "Shop_DB",
+        "database": "shop",
+        "username": "postgres"
+      }
+    ]
+  }
+}
